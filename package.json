@@ -1,6 +1,6 @@
 {
   "name": "@jaredlunde/curls-addons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "More components for Curls",
   "main": "cjs/index.js",
   "module": "es/index.js",
