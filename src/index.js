@@ -1,10 +1,10 @@
 export Blur from './Blur'
 export Icon from './Icon'
 export Scale from './Scale'
-export Spinner from './Spinner'
+export Spinner, {DelayedSpinner} from './Spinner'
 
-export Alerts from './Alerts'
-export InputGroup from './InputGroup'
+export Alerts, {AlertBox} from './Alerts'
+export InputGroup, {GroupInput, GroupLabel} from './InputGroup'
 export Transition, {createTransition} from './Transition'
 export TransitionBlur from './TransitionBlur'
 export TransitionDrop from './TransitionDrop'
