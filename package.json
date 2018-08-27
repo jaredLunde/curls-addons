@@ -1,6 +1,6 @@
 {
   "name": "@jaredlunde/curls-addons",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "More components for Curls",
   "main": "cjs/index.js",
   "module": "es/index.js",
@@ -38,6 +38,7 @@
     "@render-props/toggle": "^0.1.23",
     "@render-props/utils": "^0.2.5",
     "@render-props/viewport": "^0.2.10",
+    "change-case": "^3.0.2",
     "empty": "^0.10.1",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
