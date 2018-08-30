@@ -1,32 +1,19 @@
 {
   "plugins": [
-    "@babel/transform-runtime",
-    "transform-react-pure-components",
-    "@babel/transform-react-constant-elements",
-    "@babel/proposal-export-default-from",
-    "@babel/proposal-export-namespace-from",
-    "@babel/proposal-logical-assignment-operators",
-    "@babel/proposal-nullish-coalescing-operator",
-    "@babel/proposal-optional-chaining",
-    "@babel/proposal-object-rest-spread",
-    ["@babel/proposal-class-properties", {"loose": true}],
-    "closure-elimination",
-    "dev-expression",
     "emotion",
     "polished"
   ],
-
   "env": {
     "cjs": {
       "presets": [
-        ["@babel/env", {"loose": true}],
-        "@babel/react"
+        "@jaredlunde/esx",
+        "@jaredlunde/react"
       ]
     },
     "es": {
       "presets": [
-        ["@babel/env", {"modules": false, "loose": true}],
-        "@babel/react"
+        ["@jaredlunde/esx", {"env": {"modules": false}}],
+        "@jaredlunde/react"
       ]
     }
   }

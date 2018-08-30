@@ -1,8 +1,6 @@
 import React from 'react'
 import {css} from 'emotion'
-import {Row, Box, Input} from 'styled-curls'
-import createComponent from '../createComponent'
-import Type from '../Type'
+import {Row, Box, Input, Type, createComponent} from 'styled-curls'
 import * as defaultTheme from './defaultTheme'
 
 
@@ -27,7 +25,8 @@ export default function InputGroup (props) {
       return Row({
         align: 'stretch',
         wrap: 'no',
-        ...boxProps
+        ...boxProps,
+        children: props.children
       })
     }
   })
@@ -49,10 +48,10 @@ export function GroupInput (props) {
 export function GroupLabel (props) {
   return <Box
     nodeType='label'
-    h='100%'
     flex
     justify='center'
     align='center'
+    css='min-height: 100%;'
     data-autosize
     {...props}
   />

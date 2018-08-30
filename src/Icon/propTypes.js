@@ -10,7 +10,5 @@ export default {
   sm: bool,
   xs: bool,
   xxs: bool,
-  name: string,
   containStrict: bool,
-  icons: object
 }

@@ -1,7 +1,5 @@
 import React from 'react'
 import {BasicBox, Box, createComponent, getTheme, ThemeConsumer} from 'styled-curls'
-import universal from 'react-universal-component'
-import memoize from 'lru-memoize-map'
 import invariant from 'invariant'
 import {pascal} from 'change-case'
 import pure from 'react-purity'
@@ -22,15 +20,15 @@ const SFC = createComponent({
 
 export default pure(
   function Icon (props) {
-    const name = pascal(props.name)
-
     return SFC({
       ...props,
       children: function (boxProps) {
         return BasicBox({
           ...boxProps,
-          children: function ({icons, name, ref, ...svgProps}) {
+          children: function ({icons, name, innerRef, ...svgProps}) {
+            name = pascal(name)
             const SVG = icons[name]
+
             let color
 
             if (svgProps.style.color) {

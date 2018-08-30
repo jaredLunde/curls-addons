@@ -1,4 +1,4 @@
-import * as icons from './icons'
+export const icons = {}
 
 
 export const scale = {
