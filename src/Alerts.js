@@ -84,6 +84,7 @@ export class Alerts_ extends React.PureComponent {
     return this.props.DrawerBox({
       nodeType: 'ul',
       flex: true,
+      column: true,
       pos: 'absolute',
       justify: 'center',
       onClick: this.props.hide,
@@ -92,7 +93,7 @@ export class Alerts_ extends React.PureComponent {
         top: this.props.scrollY
       },
       children: () => this.props.alerts.map(
-        (err, n) => this.props.AlertBox({n, ...err})
+        (err, n) => this.props.AlertBox({n, count: this.props.alerts.length, ...err})
       )
     })
   }
