@@ -1,4 +1,7 @@
 {
+  "presets": [
+    ["@inst-app/react", {"removePropTypes": false}]
+  ],
   "plugins": [
     "emotion",
     "polished"
@@ -6,14 +9,12 @@
   "env": {
     "cjs": {
       "presets": [
-        "@jaredlunde/esx",
-        "@jaredlunde/react"
+        "@inst-app/esx"
       ]
     },
     "es": {
       "presets": [
-        ["@jaredlunde/esx", {"env": {"modules": false}}],
-        "@jaredlunde/react"
+        ["@inst-app/esx", {"env": {"modules": false}}]
       ]
     }
   }
