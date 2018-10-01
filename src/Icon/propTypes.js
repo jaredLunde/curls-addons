@@ -10,5 +10,5 @@ export default {
   sm: bool,
   xs: bool,
   xxs: bool,
-  containStrict: bool,
+  containStrict: bool
 }

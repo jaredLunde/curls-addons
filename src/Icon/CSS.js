@@ -3,12 +3,15 @@ import {toSize} from 'styled-curls'
 
 
 function sizeCSS (value, height) {
-  const width = value ? css`width: ${toSize(value)}; min-width: ${toSize(value)};` : css`width: auto; contain: content;`
+  const width =
+    value
+      ? {width: toSize(value), minWidth: toSize(value)}
+      : {width: 'auto', contain: 'content'}
 
-  return css`
-    ${width};
-    height: ${toSize(height || value)};
-  `
+  return {
+    ...width,
+    height: toSize(height || value)
+  }
 }
 
 
@@ -18,7 +21,6 @@ export function size (value, theme) {
 
     return sizeCSS(value)
   }
-
 
   if (!isNaN(value)) {
     const intSize = parseInt(value)
