@@ -1,6 +1,6 @@
 import React from 'react'
 import Toggle from '@render-props/toggle'
-import {Transitionable, createComponent, slideUtils} from 'styled-curls'
+import {Transitionable, createComponent, slideUtils} from 'curls'
 import propTypes from './propTypes'
 import * as CSS from './CSS'
 import * as defaultTheme from './defaultTheme'

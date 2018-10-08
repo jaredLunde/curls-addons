@@ -1,6 +1,6 @@
 import React from 'react'
 import {css, keyframes} from 'emotion'
-import {BasicBox, createComponent, renderNode} from 'styled-curls'
+import {BasicBox, createComponent, renderNode} from 'curls'
 import pure from 'react-purity'
 import delayed from '@jaredlunde/react-delayed'
 import * as CSS from './CSS'

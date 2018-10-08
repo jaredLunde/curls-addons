@@ -1,5 +1,5 @@
 import React from 'react'
-import {Slide} from 'styled-curls'
+import {Slide} from 'curls'
 import {createTransition} from './Transition'
 
 

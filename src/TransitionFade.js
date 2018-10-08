@@ -1,5 +1,5 @@
 import React from 'react'
-import {Fade} from 'styled-curls'
+import {Fade} from 'curls'
 import {createTransition} from './Transition'
 
 

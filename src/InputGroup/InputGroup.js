@@ -1,6 +1,6 @@
 import React from 'react'
 import {css} from 'emotion'
-import {Row, Box, Input, Type, createComponent} from 'styled-curls'
+import {Row, Box, Input, Type, createComponent} from 'curls'
 import * as defaultTheme from './defaultTheme'
 
 

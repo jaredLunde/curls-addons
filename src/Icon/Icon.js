@@ -1,5 +1,5 @@
 import React from 'react'
-import {BasicBox, Box, createComponent, getTheme, ThemeConsumer} from 'styled-curls'
+import {BasicBox, Box, createComponent, getTheme, ThemeConsumer} from 'curls'
 import invariant from 'invariant'
 import {pascal} from 'change-case'
 import pure from 'react-purity'

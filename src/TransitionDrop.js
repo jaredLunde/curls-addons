@@ -1,5 +1,5 @@
 import React from 'react'
-import {Drop} from 'styled-curls'
+import {Drop} from 'curls'
 import {createTransition} from './Transition'
 
 

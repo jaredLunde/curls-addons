@@ -1,5 +1,5 @@
 import {css} from 'emotion'
-import {toSize} from 'styled-curls'
+import {toSize} from 'curls'
 
 
 function sizeCSS (value, height) {

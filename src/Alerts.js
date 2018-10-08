@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ViewportConsumer from '@render-props/viewport'
 import {requestTimeout, clearRequestTimeout} from '@render-props/utils'
-import {Drawer, Row, Type} from 'styled-curls'
+import {Drawer, Row, Type} from 'curls'
 import Icon from './Icon'
 
 
