@@ -17,42 +17,46 @@ const defaultCSS = css`
   }
 `
 
-export default function InputGroup (props) {
-  return SFC({
-    ...props,
-    className: [defaultCSS, props.className],
-    children: function (boxProps) {
-      return Row({
-        align: 'stretch',
-        wrap: 'no',
-        ...boxProps,
-        children: props.children
-      })
-    }
-  })
-}
+export default React.forwardRef(
+  function InputGroup (props, innerRef) {
+    return SFC({
+      innerRef,
+      ...props,
+      className: [defaultCSS, props.className],
+      children: function (boxProps) {
+        return <Row align='stretch' wrap='no' {...boxProps} children={props.children}/>
+      }
+    })
+  }
+)
 
 
-export function GroupInput (props) {
-  return <Input
-    type='text'
-    grow
-    bw={0}
-    size='1'
-    bg='transparent'
-    {...props}
-  />
-}
+export const GroupInput = React.forwardRef(
+  function GroupInput (props, ref) {
+    return <Input
+      type='text'
+      grow
+      bw={0}
+      size='1'
+      bg='transparent'
+      ref={ref}
+      {...props}
+    />
+  }
+)
 
 
-export function GroupLabel (props) {
-  return <Box
-    nodeType='label'
-    flex
-    justify='center'
-    align='center'
-    css='min-height: 100%;'
-    data-autosize
-    {...props}
-  />
-}
+export const GroupLabel = React.forwardRef(
+  function GroupLabel (props, ref) {
+    return <Box
+      nodeType='label'
+      flex
+      justify='center'
+      align='center'
+      css='min-height: 100%;'
+      ref={ref}
+      data-autosize
+      {...props}
+    />
+  }
+)
