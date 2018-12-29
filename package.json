@@ -10,6 +10,7 @@
   "author": "Jared Lunde",
   "license": "MIT",
   "private": false,
+  "sideEffects": false,
   "devDependencies": {
     "@inst-app/babel-preset-esx": "^1.0.2",
     "@inst-app/babel-preset-react": "^1.0.0",
