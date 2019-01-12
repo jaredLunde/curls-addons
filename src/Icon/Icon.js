@@ -1,7 +1,6 @@
 import React from 'react'
 import {BasicBox, createComponent} from 'curls'
 import {pascal} from 'change-case'
-import pure from 'react-purity'
 import * as CSS from './CSS'
 import * as defaultTheme from './defaultTheme'
 import propTypes from './propTypes'
@@ -17,7 +16,7 @@ const SFC = createComponent({
 })
 
 
-export default pure(
+export default React.memo(
   function Icon (props) {
     return SFC({
       ...props,

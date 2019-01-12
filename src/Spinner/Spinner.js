@@ -1,7 +1,6 @@
 import React from 'react'
 import {css, keyframes} from 'emotion'
 import {BasicBox, createComponent, renderNode} from 'curls'
-import pure from 'react-purity'
 import delayed from '@jaredlunde/react-delayed'
 import * as CSS from './CSS'
 import propTypes from './propTypes'
@@ -39,7 +38,7 @@ const SFC = createComponent({
 })
 
 
-const Spinner_ = pure(
+const Spinner_ = React.memo(
   function Spinner (props) {
     return SFC({
       ...props,
