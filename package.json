@@ -1,6 +1,6 @@
 {
   "name": "@jaredlunde/curls-addons",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "More components for Curls",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -12,19 +12,20 @@
   "private": false,
   "sideEffects": false,
   "devDependencies": {
-    "@inst-app/babel-preset-esx": "^1.0.2",
-    "@inst-app/babel-preset-react": "^1.0.0",
+    "@inst-app/babel-preset-esx": "^1.0.15",
+    "@inst-app/babel-preset-react": "^1.0.4",
     "babel-plugin-emotion": "^9.2.6",
     "babel-plugin-polished": "^1.1.0",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2"
   },
   "dependencies": {
+    "@babel/runtime-corejs2": "^7.2.0",
     "@inst-app/react-app": "^1.0.17",
     "@jaredlunde/react-delayed": "^1.0.5",
-    "@render-props/toggle": "^0.1.26",
+    "@render-props/toggle": "^0.1.28",
     "@render-props/utils": "^0.2.5",
-    "@render-props/viewport": "^0.2.13",
+    "@render-props/viewport": "^0.2.15",
     "change-case": "^3.0.2",
     "empty": "^0.10.1"
   },
