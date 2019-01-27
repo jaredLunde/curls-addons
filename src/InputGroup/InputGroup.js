@@ -1,5 +1,6 @@
+// @jsx jsx
 import React from 'react'
-import {css} from 'emotion'
+import {jsx, css} from '@emotion/core'
 import {Row, Box, Input, Type, createComponent} from 'curls'
 import * as defaultTheme from './defaultTheme'
 
@@ -22,7 +23,7 @@ export default React.forwardRef(
     return SFC({
       innerRef,
       ...props,
-      className: [defaultCSS, props.className],
+      css: [defaultCSS, props.css],
       children: function (boxProps) {
         return <Row align='stretch' wrap='no' {...boxProps} children={props.children}/>
       }
@@ -53,7 +54,7 @@ export const GroupLabel = React.forwardRef(
       flex
       justify='center'
       align='center'
-      css='min-height: 100%;'
+      css={css`min-height: 100%;`}
       ref={ref}
       data-autosize
       {...props}

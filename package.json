@@ -1,6 +1,6 @@
 {
   "name": "@jaredlunde/curls-addons",
-  "version": "2.0.6",
+  "version": "3.0.0",
   "description": "More components for Curls",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -12,16 +12,15 @@
   "private": false,
   "sideEffects": false,
   "devDependencies": {
-    "@inst-app/babel-preset-esx": "^1.0.15",
-    "@inst-app/babel-preset-react": "^1.0.4",
-    "babel-plugin-emotion": "^9.2.6",
+    "@stellar-apps/babel-preset-es": "^1.0.0",
+    "@stellar-apps/babel-preset-react": "^1.0.0",
+    "babel-plugin-emotion": "^10.0.6",
     "babel-plugin-polished": "^1.1.0",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2"
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.2.0",
-    "@inst-app/react-app": "^1.0.17",
     "@jaredlunde/react-delayed": "^1.0.5",
     "@render-props/toggle": "^0.1.28",
     "@render-props/utils": "^0.2.5",
@@ -37,5 +36,11 @@
     "edit": "atom ./",
     "prettier:es": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"dist/es/**/*.js\"",
     "prettier:cjs": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"dist/cjs/**/*.js\""
+  },
+  "peerDependencies": {
+    "@emotion/core": "^10.0.6",
+    "curls": "^2.0.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0"
   }
 }

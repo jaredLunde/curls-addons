@@ -1,5 +1,5 @@
 import React from 'react'
-import {css, keyframes} from 'emotion'
+import {css, keyframes} from '@emotion/core'
 import {BasicBox, createComponent, renderNode} from 'curls'
 import delayed from '@jaredlunde/react-delayed'
 import * as CSS from './CSS'
