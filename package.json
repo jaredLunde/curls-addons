@@ -1,6 +1,6 @@
 {
   "name": "@jaredlunde/curls-addons",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "More components for Curls",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -12,9 +12,9 @@
   "private": false,
   "sideEffects": false,
   "devDependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.6",
     "@stellar-apps/babel-preset-es": "^1.0.0",
     "@stellar-apps/babel-preset-react": "^1.0.0",
-    "babel-plugin-emotion": "^10.0.6",
     "babel-plugin-polished": "^1.1.0",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2"
@@ -39,7 +39,7 @@
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.6",
-    "curls": "^2.0.1",
+    "curls": "^2.0.3",
     "prop-types": "^15.6.2",
     "react": "^16.7.0"
   }
