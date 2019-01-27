@@ -1,6 +1,6 @@
 {
   "name": "@jaredlunde/curls-addons",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "More components for Curls",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -20,7 +20,8 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "@babel/runtime-corejs2": "^7.2.0",
+    "@babel/runtime": "^7.3.1",
+    "@babel/runtime-corejs2": "^7.3.1",
     "@jaredlunde/react-delayed": "^1.0.5",
     "@render-props/toggle": "^0.1.28",
     "@render-props/utils": "^0.2.5",
