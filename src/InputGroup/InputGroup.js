@@ -5,7 +5,7 @@ import {Row, Box, Input, Type, createComponent} from 'curls'
 import * as defaultTheme from './defaultTheme'
 
 
-const nodeType = 'div'
+const as = 'div'
 const SFC = createComponent({
   name: 'InputGroup',
   defaultTheme,
@@ -50,7 +50,7 @@ export const GroupInput = React.forwardRef(
 export const GroupLabel = React.forwardRef(
   function GroupLabel (props, ref) {
     return <Box
-      nodeType='label'
+      as='label'
       flex
       justify='center'
       align='center'

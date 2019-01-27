@@ -7,7 +7,7 @@ import propTypes from './propTypes'
 import defaultTheme from './defaultTheme'
 
 
-const nodeType = 'div'
+const as = 'div'
 const spin = keyframes`
   0% {
     transform: rotate(0deg);
@@ -44,7 +44,7 @@ const Spinner_ = React.memo(
       ...props,
       children: function (sfcProps) {
         sfcProps.children = function (boxProps) {
-          boxProps.nodeType = boxProps.nodeType || nodeType
+          boxProps.as = boxProps.as || as
           delete boxProps.cancel
           return renderNode(boxProps, defaultCSS)
         }

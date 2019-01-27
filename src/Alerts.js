@@ -17,7 +17,7 @@ export function AlertBox ({
 }) {
   return  (
     <Row
-      nodeType='li'
+      as='li'
       wrap='no'
       align='center'
       p={3}
@@ -82,7 +82,7 @@ export class Alerts_ extends React.PureComponent {
 
   render () {
     return <DrawerBox
-      nodeType='ul'
+      as='ul'
       flex
       column
       pos='absolute'
