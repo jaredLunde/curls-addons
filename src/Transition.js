@@ -41,9 +41,9 @@ export function createTransition ({
       speed,
       delay,
       ...props,
-      children: function ({className, show}) {
+      children: function ({css, show}) {
         addTransition(show, ...when)
-        return children({className})
+        return children({css})
       }
     }
 
