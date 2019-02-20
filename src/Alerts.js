@@ -27,7 +27,7 @@ export function AlertBox ({
       bc={bc}
       bg='lightestGrey'
       key={id || n}
-      css='max-width: 600px'
+      css={css`max-width: 600px`}
       {...props}
     >
       {n === 0 && (
