@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ViewportConsumer from '@render-props/viewport'
+import Viewport from '@render-props/viewport'
 import {requestTimeout, clearRequestTimeout} from '@render-props/utils'
 import {Drawer, DrawerBox, Row, Type} from 'curls'
 import Icon from './Icon'
@@ -108,7 +108,7 @@ export default function Alerts ({alerts, alertBox, portal, ...props}) {
   return alerts.length > 0 && (
     <Drawer fromTop duration='fast' {...props}>
       {({toggle, show, hide, isVisible}) => (
-        <ViewportConsumer observe='scrollY'>
+        <Viewport observe='scrollY'>
           {vpProps => <Alerts_
             toggle={toggle}
             show={show}
@@ -119,7 +119,7 @@ export default function Alerts ({alerts, alertBox, portal, ...props}) {
             portal={portal}
             {...vpProps}
           />}
-        </ViewportConsumer>
+        </Viewport>
       )}
     </Drawer>
   )
