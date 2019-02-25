@@ -17,6 +17,7 @@ const spin = keyframes`
     transform: rotate(720deg);
   }
 `
+
 const defaultCSS = css`
   border-style: solid;
   border-bottom-color: transparent;
@@ -28,7 +29,6 @@ const defaultCSS = css`
   contain: strict;
 `
 
-
 const SFC = createComponent({
   name: 'Spinner',
   themePath: 'spinner',
@@ -36,7 +36,6 @@ const SFC = createComponent({
   defaultTheme,
   propTypes
 })
-
 
 const Spinner_ = React.memo(
   function Spinner (props) {
@@ -54,7 +53,6 @@ const Spinner_ = React.memo(
     })
   }
 )
-
 
 export const DelayedSpinner = delayed(Spinner_)
 export default Spinner_

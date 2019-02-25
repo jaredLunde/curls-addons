@@ -5,7 +5,7 @@ export Spinner, {DelayedSpinner} from './Spinner'
 
 export Alerts, {AlertBox} from './Alerts'
 export InputGroup, {GroupInput, GroupLabel} from './InputGroup'
-export Transition, {createTransition} from './Transition'
+export Transition, {transition, createTransition} from './Transition'
 export TransitionBlur from './TransitionBlur'
 export TransitionDrop from './TransitionDrop'
 export TransitionFade from './TransitionFade'

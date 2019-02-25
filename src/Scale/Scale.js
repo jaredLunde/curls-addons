@@ -1,6 +1,6 @@
 import React from 'react'
 import Toggle from '@render-props/toggle'
-import {Transitionable, createComponent, slideUtils} from 'curls'
+import {Transitionable, createComponent, getDelay} from 'curls'
 import propTypes from './propTypes'
 import * as CSS from './CSS'
 import * as defaultTheme from './defaultTheme'
@@ -35,7 +35,7 @@ export default function Scale ({
             transProps.show = toggleContext.on
             transProps.hide = toggleContext.off
             transProps.toggle = toggleContext.toggle
-            transProps.delay = slideUtils.whichDelay(toggleContext.value, props)
+            transProps.delay = getDelay(toggleContext.value, props)
             return Transitionable(transProps)
           }
         })

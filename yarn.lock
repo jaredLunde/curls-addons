@@ -2137,6 +2137,11 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+lru-memoize-map@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/lru-memoize-map/-/lru-memoize-map-0.2.2.tgz#3c037ea7758d8d93a37a48dba131363332a4a1a2"
+  integrity sha512-9l/thMbIVh2J91qSA+M2P8MBaIP459S8P5XPQj24a0nhsR6hcBLMoq6cAjrYLTl8w23WoLJRu3nEgyvx+BgtOw==
+
 map-cache@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"

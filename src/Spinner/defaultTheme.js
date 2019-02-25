@@ -1,16 +1,14 @@
 export default {
-  defaultProps: {
-    color: 'red',
-    size: 'sm'
-  },
+  sizeUnit: 'px',
 
   scale: {
-    xxs: 12,
-    xs: 16,
-    sm: 24,
-    md: 48,
-    lg: 72,
-    xl: 120,
-    xxl: 154,
-  }
+    sm: 16,
+    md: 32,
+    lg: 64
+  },
+
+  defaultProps: {
+    color: 'black',
+    size: 'sm'
+  },
 }

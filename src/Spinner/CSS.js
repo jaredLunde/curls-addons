@@ -1,3 +1,4 @@
+import {toSize, nullIfFalse} from 'curls'
 import {css} from '@emotion/core'
 
 
@@ -6,17 +7,15 @@ export const hide = css`
   opacity: 0;
 `
 
-
-export function size (val, theme) {
+export const size = nullIfFalse((val, theme) => {
   const wh = parseInt(theme.scale[val] || val)
 
   return css`
-    width: ${wh}px;
-    height: ${wh}px;
-    border-width: ${Math.ceil(wh / 8)}px;
+    width: ${toSize(wh, theme.sizeUnit)};
+    height: ${toSize(wh, theme.sizeUnit)};
+    border-width: ${toSize(wh, Math.ceil(wh / 8))};
   `
-}
-
+})
 
 export const xxs = (_, theme) => size('xxs', theme)
 export const xs = (_, theme) => size('xs', theme)
@@ -27,7 +26,7 @@ export const xl = (_, theme) => size('xl', theme)
 export const xxl = (_, theme) => size('xxl', theme)
 
 
-export function color (val, theme) {
+export const color = nullIfFalse((val, theme) => {
   const color = theme.colors[val] || val
 
   return css`
@@ -36,4 +35,4 @@ export function color (val, theme) {
     border-left-color: ${color};
     border-bottom-color: transparent;
   `
-}
+})

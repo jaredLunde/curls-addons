@@ -1,6 +1,6 @@
 {
   "name": "@jaredlunde/curls-addons",
-  "version": "3.0.5",
+  "version": "4.0.0",
   "description": "More components for Curls",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -27,7 +27,8 @@
     "@render-props/utils": "^0.2.5",
     "@render-props/viewport": "^0.2.15",
     "change-case": "^3.0.2",
-    "empty": "^0.10.1"
+    "empty": "^0.10.1",
+    "lru-memoize-map": "^0.2.2"
   },
   "scripts": {
     "build": "yarn run build:es && yarn run build:cjs",
@@ -40,7 +41,7 @@
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.6",
-    "curls": "^2.0.3",
+    "curls": "^3.0.4",
     "prop-types": "^15.6.2",
     "react": "^16.7.0"
   }

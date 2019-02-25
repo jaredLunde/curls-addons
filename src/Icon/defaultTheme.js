@@ -1,19 +1,15 @@
 export const icons = {}
-
+export const sizeUnit = 'px'
 
 export const scale = {
-  xxs: 1/2 * 16,
-  xs: 3/4 * 16,
   sm: 1 * 16,
-  md: 1.75 * 16,
-  lg: 3 * 16,
-  xl: 4 * 16,
-  xxl: 6 * 16,
+  md: 2 * 16,
+  lg: 4 * 16,
 }
 
 export const defaultProps = {
-  size: 'md',
-  color: 'accent',
+  size: 'sm',
+  color: 'black',
   containStrict: true,
   icons
 }

@@ -106,7 +106,7 @@ export default function Alerts ({alerts, alertBox, portal, ...props}) {
   }
 
   return alerts.length > 0 && (
-    <Drawer fast fromTop {...props}>
+    <Drawer fromTop duration='fast' {...props}>
       {({toggle, show, hide, isVisible}) => (
         <ViewportConsumer observe='scrollY'>
           {vpProps => <Alerts_
