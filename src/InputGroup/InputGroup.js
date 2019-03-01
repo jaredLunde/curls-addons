@@ -5,12 +5,7 @@ import {Row, Box, Input, Type, createComponent} from 'curls'
 import * as defaultTheme from './defaultTheme'
 
 
-const as = 'div'
-const SFC = createComponent({
-  name: 'InputGroup',
-  defaultTheme,
-  themePath: 'inputGroup'
-})
+const SFC = createComponent({name: 'inputGroup', defaultTheme})
 
 const defaultCSS = css`
   & input {

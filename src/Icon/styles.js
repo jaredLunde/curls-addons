@@ -1,5 +1,5 @@
 import {css} from '@emotion/core'
-import {toSize} from 'curls'
+import {toSize, memoThemeValue} from 'curls'
 
 
 function sizeCSS (value, height, theme) {
@@ -14,8 +14,7 @@ function sizeCSS (value, height, theme) {
   }
 }
 
-
-export function size (value, theme) {
+export const size = memoThemeValue((value, theme) => {
   if (theme.scale[value] !== void 0) {
     value = theme.scale[value]
 
@@ -31,24 +30,9 @@ export function size (value, theme) {
     height = height && parseFloat(height)
     return sizeCSS(width, height, theme)
   }
-}
+})
 
-
-function createSizeFunc (value, theme) {
-  return function (_, theme) {
-    return size(value, theme)
-  }
-}
-
-export const xxs = createSizeFunc('xxs')
-export const xs = createSizeFunc('xs')
-export const sm = createSizeFunc('sm')
-export const md = createSizeFunc('md')
-export const lg = createSizeFunc('lg')
-export const xl = createSizeFunc('xl')
-export const xxl = createSizeFunc('xxl')
-
-export function color (value, theme) {
+export const color = (value, theme) => {
   return {color: theme.colors[value] || value}
 }
 

@@ -1,14 +1,7 @@
-import {string, bool, object} from 'prop-types'
+import {string, bool, number, oneOfType} from 'prop-types'
 
 
 export default {
-  size: string,
-  xxl: bool,
-  xl: bool,
-  lg: bool,
-  md: bool,
-  sm: bool,
-  xs: bool,
-  xxs: bool,
+  size: oneOfType([string, number]),
   containStrict: bool
 }

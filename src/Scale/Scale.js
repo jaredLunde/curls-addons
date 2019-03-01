@@ -2,12 +2,12 @@ import React from 'react'
 import Toggle from '@render-props/toggle'
 import {Transitionable, createComponent, getDelay} from 'curls'
 import propTypes from './propTypes'
-import * as CSS from './CSS'
+import * as styles from './styles'
 import * as defaultTheme from './defaultTheme'
 
 
 const themePath = 'scale'
-const SFC = createComponent({name: 'Scale', propTypes, CSS, defaultTheme, themePath})
+const SFC = createComponent({name: 'scale', styles, defaultTheme})
 
 
 const transitionProperties = 'visibility, transform, opacity'
@@ -43,3 +43,5 @@ export default function Scale ({
     </Toggle>
   )
 }
+
+Scale.propTypes /* remove-proptypes */ = propTypes

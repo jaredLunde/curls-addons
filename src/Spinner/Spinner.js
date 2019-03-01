@@ -2,7 +2,7 @@ import React from 'react'
 import {css, keyframes} from '@emotion/core'
 import {BasicBox, createComponent, renderNode} from 'curls'
 import delayed from '@jaredlunde/react-delayed'
-import * as CSS from './CSS'
+import * as styles from './styles'
 import propTypes from './propTypes'
 import defaultTheme from './defaultTheme'
 
@@ -29,13 +29,7 @@ const defaultCSS = css`
   contain: strict;
 `
 
-const SFC = createComponent({
-  name: 'Spinner',
-  themePath: 'spinner',
-  CSS,
-  defaultTheme,
-  propTypes
-})
+const SFC = createComponent({name: 'spinner', styles, defaultTheme})
 
 const Spinner_ = React.memo(
   function Spinner (props) {
@@ -56,3 +50,4 @@ const Spinner_ = React.memo(
 
 export const DelayedSpinner = delayed(Spinner_)
 export default Spinner_
+Spinner_.propTypes /* remove-proptypes */= propTypes

@@ -2,14 +2,11 @@ import React from 'react'
 import Toggle from '@render-props/toggle'
 import {Transitionable, createComponent, getDelay} from 'curls'
 import propTypes from './propTypes'
-import * as CSS from './CSS'
+import * as styles from './styles'
 import * as defaultTheme from './defaultTheme'
 
 
-const themePath = 'blur'
-const SFC = createComponent({name: 'Blur', propTypes, CSS, defaultTheme, themePath})
-
-
+const SFC = createComponent({name: 'blur', styles, defaultTheme})
 const transitionProperties = 'filter, -webkit-filter'
 
 
@@ -43,3 +40,5 @@ export default function Blur ({
     </Toggle>
   )
 }
+
+Blur.propTypes /* remove-proptypes */ = propTypes
