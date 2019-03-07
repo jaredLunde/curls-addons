@@ -7,5 +7,5 @@ export const defaultProps = {
   br: 5,
   color: 'darkGrey',
   light: true,
-  sm: true
+  size: 'sm'
 }
