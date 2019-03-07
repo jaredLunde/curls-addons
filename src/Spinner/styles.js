@@ -13,18 +13,9 @@ export const size = memoThemeValue((val, theme) => {
   return css`
     width: ${toSize(wh, theme.sizeUnit)};
     height: ${toSize(wh, theme.sizeUnit)};
-    border-width: ${toSize(wh, Math.ceil(wh / 8))};
+    border-width: ${toSize(Math.ceil(wh / 8), theme.sizeUnit)};
   `
 })
-
-export const xxs = memoThemeValue((_, theme) => size('xxs', theme))
-export const xs = memoThemeValue((_, theme) => size('xs', theme))
-export const sm = memoThemeValue((_, theme) => size('sm', theme))
-export const md = memoThemeValue((_, theme) => size('md', theme))
-export const lg = memoThemeValue((_, theme) => size('lg', theme))
-export const xl = memoThemeValue((_, theme) => size('xl', theme))
-export const xxl = memoThemeValue((_, theme) => size('xxl', theme))
-
 
 export const color = memoThemeValue((val, theme) => {
   const color = theme.colors[val] || val
