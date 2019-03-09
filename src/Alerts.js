@@ -26,8 +26,8 @@ export function AlertBox ({
       br={1}
       bc={bc}
       bg='lightestGrey'
+      maxW='600'
       key={id || n}
-      css={css`max-width: 600px`}
       {...props}
     >
       {n === 0 && (
@@ -92,7 +92,11 @@ export class Alerts_ extends React.PureComponent {
       onClick={this.props.hide}
       style={{cursor: 'pointer', top: this.props.scrollY}}
       children={this.props.alerts.map(
-        (err, n) => this.props.AlertBox({n, count: this.props.alerts.length, ...err})
+        (err, n) => this.props.AlertBox({
+          n,
+          count: this.props.alerts.length,
+          ...(typeof err === 'string' ? {message: err} : err)
+        })
       )}
     />
   }
@@ -100,7 +104,7 @@ export class Alerts_ extends React.PureComponent {
 
 
 
-export default function Alerts ({alerts, alertBox, portal, ...props}) {
+export default function Alerts ({alerts, children, portal, ...props}) {
   if (!alerts) {
     return null
   }
@@ -114,7 +118,7 @@ export default function Alerts ({alerts, alertBox, portal, ...props}) {
             show={show}
             hide={hide}
             isVisible={isVisible}
-            AlertBox={alertBox || AlertBox}
+            AlertBox={children}
             alerts={alerts}
             portal={portal}
             {...vpProps}

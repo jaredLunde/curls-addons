@@ -5,7 +5,5 @@ export const defaultProps = {
   bc: 'translucentLight',
   bw: 1,
   br: 5,
-  color: 'darkGrey',
-  light: true,
-  size: 'sm'
+  color: 'darkGrey'
 }
