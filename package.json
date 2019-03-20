@@ -1,6 +1,6 @@
 {
   "name": "@jaredlunde/curls-addons",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "More components for Curls",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -12,21 +12,20 @@
   "private": false,
   "sideEffects": false,
   "devDependencies": {
-    "@emotion/babel-preset-css-prop": "^10.0.6",
-    "@stellar-apps/babel-preset-es": "^1.0.0",
-    "@stellar-apps/babel-preset-react": "^1.0.0",
+    "@emotion/babel-preset-css-prop": "^10.0.9",
+    "@stellar-apps/babel-preset-es": "^1.0.4",
+    "@stellar-apps/babel-preset-react": "^1.0.1",
     "babel-plugin-polished": "^1.1.0",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.3.1",
-    "@babel/runtime-corejs2": "^7.3.1",
+    "@babel/runtime": "^7.4.0",
     "@jaredlunde/react-delayed": "^1.0.5",
-    "@render-props/toggle": "^0.1.28",
-    "@render-props/utils": "^0.2.5",
-    "@render-props/viewport": "^0.2.15",
-    "change-case": "^3.0.2",
+    "@render-props/toggle": "^0.1.29",
+    "@render-props/utils": "^0.2.11",
+    "@render-props/viewport": "^0.3.0",
+    "change-case": "^3.1.0",
     "empty": "^0.10.1",
     "lru-memoize-map": "^0.2.2"
   },
@@ -37,7 +36,8 @@
     "build-pub": "yarn run build && yarn publish --access public",
     "edit": "atom ./",
     "prettier:es": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"dist/es/**/*.js\"",
-    "prettier:cjs": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"dist/cjs/**/*.js\""
+    "prettier:cjs": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"dist/cjs/**/*.js\"",
+    "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.6",
