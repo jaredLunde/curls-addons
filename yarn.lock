@@ -960,12 +960,12 @@
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.11.1.tgz#8529b7412a6eb4b48bdf6e720cc1b8e6e1e17628"
   integrity sha512-8M3VN0hetwhsJ8dH8VkVy7xo5/1VoBsDOk/T4SJOeXwTO1c4uIqVNx2qyecLFnnUWD5vvUqHQ1gASSeUN6zcTg==
 
-"@jaredlunde/react-delayed@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@jaredlunde/react-delayed/-/react-delayed-1.0.5.tgz#144f16b3d90f35112347f6804f480581dd6eecbb"
+"@jaredlunde/react-delayed@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@jaredlunde/react-delayed/-/react-delayed-1.0.8.tgz#44e2bc6f62860e6dc5e44e98e0a4c09927a3511a"
+  integrity sha512-b3nboGjEZ70SMa9ezMnj6AkPSDgbEyLNE+xfL062YAutz5CQiMvjuaFkBx33I5JX+rgZP2toZjb5L1mq3WhwKA==
   dependencies:
-    "@babel/runtime" "^7.0.0"
-    "@render-props/utils" "^0.2.5"
+    "@render-props/utils" "^0.2.13"
 
 "@render-props/events@^0.1.12":
   version "0.1.12"
@@ -1027,7 +1027,7 @@
     "@babel/runtime-corejs2" "^7.3.1"
     "@render-props/value" "^0.1.17"
 
-"@render-props/utils@^0.2.0", "@render-props/utils@^0.2.1", "@render-props/utils@^0.2.5":
+"@render-props/utils@^0.2.0", "@render-props/utils@^0.2.1":
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/@render-props/utils/-/utils-0.2.8.tgz#a5bb824bf1a8e7596c6845809b6a6d7d3351ee1e"
   dependencies:
@@ -1041,6 +1041,14 @@
   dependencies:
     "@babel/runtime" "^7.3.1"
     "@babel/runtime-corejs2" "^7.3.1"
+    raf "^3.4.0"
+
+"@render-props/utils@^0.2.13":
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/@render-props/utils/-/utils-0.2.13.tgz#0efac795260440cd4a19129f2e5acb264bf714e2"
+  integrity sha512-qYV7OnNJwUCABClay7lLDezRefnUWCSMElhheLlO69bDcNSQmIB5v27WYKCYF9CjHPeEJ9vDY8nWe6za/HK0lw==
+  dependencies:
+    performance-now "^2.1.0"
     raf "^3.4.0"
 
 "@render-props/value@^0.1.17":
