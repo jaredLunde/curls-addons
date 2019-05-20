@@ -1,7 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Viewport from '@render-props/viewport'
-import {requestTimeout, clearRequestTimeout} from '@render-props/utils'
+import React, {useEffect} from 'react'
+import useWindowScroll from '@react-hook/window-scroll'
+import {requestTimeout, clearRequestTimeout} from '@essentials/request-timeout'
 import {Drawer, DrawerBox, Row, Type} from 'curls'
 import Icon from './Icon'
 
@@ -41,89 +40,52 @@ export function AlertBox ({
   )
 }
 
+const Alerts_ = ({duration = 6000, show, hide, alerts, AlertBox, portal}) => {
+  const scrollY = useWindowScroll(60 /*fps*/)
 
-export class Alerts_ extends React.PureComponent {
-  static displayName = 'Alerts'
-  static propTypes = {
-    duration: PropTypes.number.isRequired,
-    alerts: PropTypes.array
-  }
+  useEffect(
+    () => {
+      show()
+      const hideTimeout = requestTimeout(hide, duration + 10)
+      return () => clearRequestTimeout(hideTimeout)
+    },
+    [alerts]
+  )
 
-  static defaultProps = {
-    duration: 6000
-  }
-
-  componentDidMount () {
-    this.showAndHide()
-  }
-
-  componentDidUpdate ({alerts}) {
-    if (alerts !== this.props.alerts) {
-      this.showAndHide()
-    }
-  }
-
-  componentWillUnmount () {
-    this.clearTimeouts()
-  }
-
-  hideTimeout = null
-
-  showAndHide () {
-    const {show, hide, duration} = this.props
-    this.clearTimeouts()
-    show()
-    this.hideTimeout = requestTimeout(hide, duration + 10)
-  }
-
-  clearTimeouts () {
-    if (this.hideTimeout) clearRequestTimeout(this.hideTimeout);
-  }
-
-  render () {
-    return <DrawerBox
-      as='ul'
-      flex
-      column
-      pos='absolute'
-      align='center'
-      w='100%'
-      portal={this.props.portal}
-      onClick={this.props.hide}
-      style={{cursor: 'pointer', top: this.props.scrollY}}
-      children={this.props.alerts.map(
-        (err, n) => this.props.AlertBox({
-          n,
-          count: this.props.alerts.length,
-          ...(typeof err === 'string' ? {message: err} : err)
-        })
-      )}
-    />
-  }
+  return <DrawerBox
+    as='ul'
+    flex
+    column
+    pos='absolute'
+    align='center'
+    w='100%'
+    portal={portal}
+    onClick={hide}
+    style={{cursor: 'pointer', top: scrollY}}
+    children={alerts.map(
+      (err, n) => AlertBox({
+        n,
+        count: alerts.length,
+        ...(typeof err === 'string' ? {message: err} : err)
+      })
+    )}
+  />
 }
 
 
-
-export default function Alerts ({alerts, children, portal, ...props}) {
-  if (!alerts) {
-    return null
-  }
-
+export default function Alerts ({alerts, children, portal, duration, ...props}) {
+  if (!alerts) return null
   return alerts.length > 0 && (
     <Drawer fromTop duration='fast' {...props}>
-      {({toggle, show, hide, isVisible}) => (
-        <Viewport observe='scrollY'>
-          {vpProps => <Alerts_
-            toggle={toggle}
-            show={show}
-            hide={hide}
-            isVisible={isVisible}
-            AlertBox={children}
-            alerts={alerts}
-            portal={portal}
-            {...vpProps}
-          />}
-        </Viewport>
+      {({show, hide}) => (
+        <Alerts_
+          show={show}
+          hide={hide}
+          AlertBox={children}
+          alerts={alerts}
+          duration={duration}
+          portal={portal}
+        />
       )}
     </Drawer>
   )

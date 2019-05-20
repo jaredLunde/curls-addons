@@ -1,1 +1,1 @@
-export default from './Blur'
+export default, {useBlur} from './Blur'

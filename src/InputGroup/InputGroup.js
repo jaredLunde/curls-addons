@@ -1,58 +1,55 @@
 // @jsx jsx
 import React from 'react'
-import {jsx, css} from '@emotion/core'
-import {Row, Box, Input, Type, createComponent} from 'curls'
+import {css, jsx, Row, Box, Input, useStyles, createElement} from 'curls'
 import * as defaultTheme from './defaultTheme'
 
 
-const SFC = createComponent({name: 'inputGroup', defaultTheme})
-
-const defaultCSS = css`
+const
+  options = {name: 'inputGroup', defaultTheme},
+  defaultCSS = css`
   & input {
     box-shadow: none !important;
   }
 `
-
-export default React.forwardRef(
-  function InputGroup (props, innerRef) {
-    return SFC({
-      innerRef,
-      ...props,
-      css: [defaultCSS, props.css],
-      children: function (boxProps) {
-        return <Row align='stretch' wrap='no' {...boxProps} children={props.children}/>
-      }
-    })
-  }
+const InputGroup = React.forwardRef(
+  (props, ref) => {
+    props = useStyles(props, options)
+    props.align = 'stretch'
+    props.wrap = 'no'
+    props.ref = ref
+    return createElement(Row, props, defaultCSS)
+  },
 )
-
 
 export const GroupInput = React.forwardRef(
-  function GroupInput (props, ref) {
-    return <Input
-      type='text'
-      grow
-      bw={0}
-      size='1'
-      bg='transparent'
-      ref={ref}
-      {...props}
-    />
-  }
+  (props, ref) => <Input
+    type='text'
+    grow
+    bw='0'
+    size='1'
+    bg='transparent'
+    ref={ref}
+    {...props}
+  />,
 )
-
 
 export const GroupLabel = React.forwardRef(
-  function GroupLabel (props, ref) {
-    return <Box
-      as='label'
-      flex
-      justify='center'
-      align='center'
-      css={css`min-height: 100%;`}
-      ref={ref}
-      data-autosize
-      {...props}
-    />
-  }
+  (props, ref) => <Box
+    as='label'
+    flex
+    justify='center'
+    align='center'
+    minH='100%'
+    ref={ref}
+    data-autosize
+    {...props}
+  />,
 )
+
+if (__DEV__) {
+  InputGroup.displayName = 'InputGroup'
+  GroupInput.displayName = 'GroupInput'
+  GroupLabel.displayName = 'GroupLabel'
+}
+
+export default InputGroup

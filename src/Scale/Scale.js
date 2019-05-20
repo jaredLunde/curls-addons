@@ -1,47 +1,23 @@
 import React from 'react'
-import Toggle from '@render-props/toggle'
-import {Transitionable, createComponent, getDelay} from 'curls'
 import propTypes from './propTypes'
 import * as styles from './styles'
-import * as defaultTheme from './defaultTheme'
+import {useTransitionableToggle} from 'curls'
 
 
-const themePath = 'scale'
-const SFC = createComponent({name: 'scale', styles, defaultTheme})
+const
+  options = {name: 'scale', styles, transitionProperties: 'visibility, transform, opacity'},
+  useScale = props => {
+    props = Object.assign({}, props)
+    props.from = props.from === void 0 ? 4.0 : props.from
+    props.to = props.to === void 0 ? 1.0 : props.to
+    return useTransitionableToggle(options, props)
+  },
+  Scale = props => props.children(useScale(props))
 
-
-const transitionProperties = 'visibility, transform, opacity'
-
-
-export default function Scale ({
-  children,
-  from = 4.0,
-  to = 1.0,
-  initiallyVisible = false,
-  visible,
-  ...props
-}) {
-  return (
-    <Toggle value={visible} initialValue={initiallyVisible}>
-      {function (toggleContext) {
-        return SFC({
-          isVisible: toggleContext.value,
-          from,
-          to,
-          ...props,
-          children: function (transProps) {
-            transProps.property = transitionProperties
-            transProps.children = children
-            transProps.show = toggleContext.on
-            transProps.hide = toggleContext.off
-            transProps.toggle = toggleContext.toggle
-            transProps.delay = getDelay(toggleContext.value, props)
-            return Transitionable(transProps)
-          }
-        })
-      }}
-    </Toggle>
-  )
+if (__DEV__) {
+  Scale.displayName = 'Scale'
+  Scale.propTypes = propTypes
 }
 
-Scale.propTypes /* remove-proptypes */ = propTypes
+export {useScale}
+export default Scale

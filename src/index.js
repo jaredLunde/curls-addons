@@ -1,6 +1,6 @@
-export Blur from './Blur'
+export Blur, {useBlur} from './Blur'
 export Icon from './Icon'
-export Scale from './Scale'
+export Scale, {useScale} from './Scale'
 export Spinner, {DelayedSpinner} from './Spinner'
 
 export Alerts, {AlertBox} from './Alerts'

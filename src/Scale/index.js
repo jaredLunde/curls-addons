@@ -1,1 +1,1 @@
-export default from './Scale'
+export default, {useScale} from './Scale'

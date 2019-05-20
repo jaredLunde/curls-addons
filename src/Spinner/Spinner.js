@@ -1,13 +1,11 @@
 import React from 'react'
-import {css, keyframes} from '@emotion/core'
-import {BasicBox, createComponent, renderNode} from 'curls'
+import {css, keyframes, useBasicBox, useStyles, createElement} from 'curls'
 import delayed from '@jaredlunde/react-delayed'
 import * as styles from './styles'
 import propTypes from './propTypes'
 import defaultTheme from './defaultTheme'
 
 
-const as = 'div'
 const spin = keyframes`
   0% {
     transform: rotate(0deg);
@@ -29,25 +27,25 @@ const defaultCSS = css`
   contain: strict;
 `
 
-const SFC = createComponent({name: 'spinner', styles, defaultTheme})
-
-const Spinner_ = React.memo(
-  function Spinner (props) {
-    return SFC({
-      ...props,
-      children: function (sfcProps) {
-        sfcProps.children = function (boxProps) {
-          boxProps.as = boxProps.as || as
-          delete boxProps.cancel
-          return renderNode(boxProps, defaultCSS)
-        }
-
-        return BasicBox(sfcProps)
-      }
+const
+  options = {name: 'spinner', styles, defaultTheme},
+  Spinner = React.memo(
+    React.forwardRef((props, ref) => {
+      props = useBasicBox(useStyles(props, options))
+      props.ref = ref
+      delete props.cancel
+      return createElement('div', props, defaultCSS)
     })
-  }
-)
+  ),
+  DelayedSpinner = delayed(Spinner)
 
-export const DelayedSpinner = delayed(Spinner_)
-export default Spinner_
-Spinner_.propTypes /* remove-proptypes */= propTypes
+
+if (__DEV__) {
+  DelayedSpinner.displayName = 'DelayedSpinner'
+  Spinner.displayName = 'Spinner'
+  Spinner.propTypes = propTypes
+}
+
+export {DelayedSpinner}
+export default Spinner
+

@@ -1,6 +1,5 @@
 import React from 'react'
-import {requestTimeout, clearRequestTimeout} from '@render-props/utils'
-import {css, ClassNames} from '@emotion/core'
+import {requestTimeout, clearRequestTimeout} from '@essentials/request-timeout'
 import {Transitionable} from 'curls'
 import {paramCase} from 'change-case'
 import memoize from 'lru-memoize-map'
@@ -26,7 +25,8 @@ import memoize from 'lru-memoize-map'
    speed: 'verySlow'
  })
  */
-const getProperties = memoize(1000)(
+const getProperties = memoize(
+  [WeakMap],
   states => {
     const props = []
 

@@ -1,44 +1,23 @@
 import React from 'react'
-import Toggle from '@render-props/toggle'
-import {Transitionable, createComponent, getDelay} from 'curls'
 import propTypes from './propTypes'
 import * as styles from './styles'
-import * as defaultTheme from './defaultTheme'
+import {useTransitionableToggle} from 'curls'
 
 
-const SFC = createComponent({name: 'blur', styles, defaultTheme})
-const transitionProperties = 'filter, -webkit-filter'
+const
+  options = {name: 'blur', styles, transitionProperties: 'filter, -webkit-filter'},
+  useBlur = props => {
+    props = Object.assign({}, props)
+    props.from = props.from === void 0 ? 4.0 : props.from
+    props.to = props.to === void 0 ? 1.0 : props.to
+    return useTransitionableToggle(options, props)
+  },
+  Blur = props => props.children(useBlur(props))
 
-
-export default function Blur ({
-  children,
-  from = 4.0,
-  to = 1.0,
-  initiallyVisible = false,
-  visible,
-  ...props
-}) {
-  return (
-    <Toggle value={visible} initialValue={initiallyVisible}>
-      {function (toggleContext) {
-        return SFC({
-          isVisible: toggleContext.value,
-          from,
-          to,
-          ...props,
-          children: function (transProps) {
-            transProps.property = transitionProperties
-            transProps.children = children
-            transProps.show = toggleContext.on
-            transProps.hide = toggleContext.off
-            transProps.toggle = toggleContext.toggle
-            transProps.delay = getDelay(toggleContext.value, props)
-            return Transitionable(transProps)
-          }
-        })
-      }}
-    </Toggle>
-  )
+if (__DEV__) {
+  Blur.displayName = 'Blur'
+  Blur.propTypes = propTypes
 }
 
-Blur.propTypes /* remove-proptypes */ = propTypes
+export {useBlur}
+export default Blur
