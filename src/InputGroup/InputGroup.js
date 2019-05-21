@@ -19,7 +19,7 @@ const InputGroup = React.forwardRef(
     props.align = 'stretch'
     props.wrap = 'no'
     props.ref = ref
-    return createElement(Row, props, defaultCSS)
+    return createElement(Row, props)
   },
 )
 
