@@ -20,6 +20,7 @@ const
           SVG = icons[svgProps.name],
           color
 
+        props.color = props.color || theme.defaultProps.color
         if (props.color)
           color = theme.colors[props.color] || props.color
         svgProps.ref = ref
