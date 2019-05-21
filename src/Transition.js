@@ -2,7 +2,7 @@ import React from 'react'
 import {requestTimeout, clearRequestTimeout} from '@essentials/request-timeout'
 import {Transitionable} from 'curls'
 import {paramCase} from 'change-case'
-import memoize from 'lru-memoize-map'
+import memoize from 'trie-memoize'
 
 
 /**

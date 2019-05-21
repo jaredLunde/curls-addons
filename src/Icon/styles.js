@@ -32,8 +32,4 @@ export const size = memoThemeValue((value, theme) => {
   }
 })
 
-export const color = (value, theme) => {
-  return {color: theme.colors[value] || value}
-}
-
 export const containStrict = css`contain: strict;`
