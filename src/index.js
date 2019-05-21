@@ -1,10 +1,10 @@
 export Blur, {useBlur} from './Blur'
-export Icon from './Icon'
+export Icon, {useIcon} from './Icon'
 export Scale, {useScale} from './Scale'
-export Spinner, {DelayedSpinner} from './Spinner'
+export Spinner, {useSpinner, DelayedSpinner} from './Spinner'
 
 export Alerts, {AlertBox} from './Alerts'
-export InputGroup, {GroupInput, GroupLabel} from './InputGroup'
+export InputGroup, {useInputGroup, GroupInput, GroupLabel} from './InputGroup'
 export Transition, {transition, createTransition} from './Transition'
 export TransitionBlur from './TransitionBlur'
 export TransitionDrop from './TransitionDrop'

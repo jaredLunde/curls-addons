@@ -5,15 +5,17 @@ import * as defaultTheme from './defaultTheme'
 
 
 const
-  options = {name: 'inputGroup', defaultTheme},
-  defaultCSS = css`
-  & input {
-    box-shadow: none !important;
-  }
-`
+  defaultStyles = css`
+    & input {
+      box-shadow: none !important;
+    }
+  `,
+  options = {name: 'inputGroup', defaultStyles, defaultTheme},
+  useInputGroup = props => useStyles(props, options)
+
 const InputGroup = React.forwardRef(
   (props, ref) => {
-    props = useStyles(props, options)
+    props = useInputGroup(props)
     props.align = 'stretch'
     props.wrap = 'no'
     props.ref = ref
@@ -52,4 +54,5 @@ if (__DEV__) {
   GroupLabel.displayName = 'GroupLabel'
 }
 
+export {useInputGroup}
 export default InputGroup

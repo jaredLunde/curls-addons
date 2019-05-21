@@ -1,1 +1,1 @@
-export default, {GroupInput, GroupLabel} from './InputGroup'
+export default, {GroupInput, GroupLabel, useInputGroup} from './InputGroup'
