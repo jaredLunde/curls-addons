@@ -20,9 +20,9 @@ const
           SVG = icons[svgProps.name],
           color
 
-        props.color = props.color || theme.defaultProps.color
-        if (props.color)
-          color = theme.colors[props.color] || props.color
+        svgProps.color = svgProps.color || theme.defaultProps.color
+        if (svgProps.color)
+          color = theme.colors[svgProps.color] || svgProps.color
         svgProps.ref = ref
         svgProps.pathStyle = {fill: color || '#000'}
         svgProps.role = 'img'
