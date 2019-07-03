@@ -259,7 +259,7 @@ export function createTransition ({
       }
     }
 
-    return transition(transitionProps)
+    return React.createElement(transition, transitionProps)
   }
 
   function Transitioner (props) {
