@@ -1,41 +1,41 @@
 import React from 'react'
-import {useBasicBox, useStyles, useTheme} from 'curls'
+import {css, useBasicBox, useStyles, useTheme} from 'curls'
 import {pascal} from 'change-case'
 import * as styles from './styles'
-import * as defaultTheme from './defaultTheme'
-import propTypes from './propTypes'
 
 
 const
-  options = {name: 'icon', styles, defaultTheme},
-  useIcon = props => useStyles(props, options),
-  Icon = React.memo(
-    React.forwardRef(
-      (props, ref) => {
-        const
-          {icons, ...svgProps} = useBasicBox(useIcon(props)),
-          theme = useTheme(options)
-        svgProps.name = pascal(svgProps.name)
-        let
-          SVG = icons[svgProps.name],
-          color
+  defaultStyles = css`
+    width: 1em;
+    height: 1em;
+  `,
+  options = {name: 'icon', styles}
 
-        svgProps.color = svgProps.color || theme.defaultProps.color
-        if (svgProps.color)
-          color = theme.colors[svgProps.color] || svgProps.color
-        svgProps.ref = ref
-        svgProps.pathStyle = {fill: color || '#000'}
-        svgProps.role = 'img'
-        svgProps['aria-label'] = svgProps.title || svgProps.name
-        return React.createElement(SVG, svgProps)
-      }
-    )
-  )
+export const
+  useIcon = props => useStyles(props, options),
+  Icon = React.memo(React.forwardRef((props, ref) => {
+    const theme = useTheme()
+    props = Object.assign({css: [defaultStyles]}, props)
+    props = useBasicBox(useIcon(props))
+    props.name = pascal(props.name)
+
+    let
+      SVG = (theme?.icon?.icons || {})[props.name],
+      color  = theme.colors[props.color] || props.color
+
+    props.ref = ref
+    props.pathStyle = {fill: color}
+    props.role = 'img'
+    props['aria-label'] = props.title || props.name
+    return React.createElement(SVG, props)
+  }))
+
+Icon.defaultProps = {
+  color: 'currentColor'
+}
 
 if (__DEV__) {
+  const propTypes = require('./propTypes').default
   Icon.displayName = 'Icon'
   Icon.propTypes = propTypes
 }
-
-export {useIcon}
-export default Icon

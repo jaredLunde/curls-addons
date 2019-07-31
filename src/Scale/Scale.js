@@ -1,23 +1,25 @@
-import React from 'react'
-import propTypes from './propTypes'
+import {createRenderProp, useTransitionableToggle} from 'curls'
 import * as styles from './styles'
-import {useTransitionableToggle} from 'curls'
 
 
 const
-  options = {name: 'scale', styles, transitionProperties: 'visibility, transform, opacity'},
+  options = {name: 'scale', styles, transitionProperties: 'visibility, transform, opacity'}
+export const
   useScale = props => {
     props = Object.assign({}, props)
     props.from = props.from === void 0 ? 4.0 : props.from
     props.to = props.to === void 0 ? 1.0 : props.to
     return useTransitionableToggle(options, props)
   },
-  Scale = props => props.children(useScale(props))
+  Scale = createRenderProp(useScale)
+
+Scale.defaultProps = {
+  duration: 'normal',
+  easing: 'heavyMove'
+}
 
 if (__DEV__) {
+  const propTypes = require('./propTypes').default
   Scale.displayName = 'Scale'
   Scale.propTypes = propTypes
 }
-
-export {useScale}
-export default Scale

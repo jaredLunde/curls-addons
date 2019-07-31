@@ -1,8 +1,6 @@
 // @jsx jsx
 import React from 'react'
-import {css, jsx, Row, Box, Input, useStyles, createElement} from 'curls'
-import * as defaultTheme from './defaultTheme'
-
+import {css, jsx, useBox, Box, Input, useStyles, createElement} from 'curls'
 
 const
   defaultStyles = css`
@@ -10,49 +8,54 @@ const
       box-shadow: none !important;
     }
   `,
-  options = {name: 'inputGroup', defaultStyles, defaultTheme},
-  useInputGroup = props => useStyles(props, options)
+  options = {name: 'inputGroup'}
+export const
+  useInputGroup = props => useStyles(props, options),
+  InputGroup = React.forwardRef(
+    (props, ref) => {
+      props = Object.assign({css: [defaultStyles]}, props)
+      props.align = 'stretch'
+      props.wrap = 'no'
+      props = useBox(useInputGroup(props))
+      props.ref = ref
+      return createElement('div', props)
+    },
+  )
 
-const InputGroup = React.forwardRef(
-  (props, ref) => {
-    props = useInputGroup(props)
-    props.align = 'stretch'
-    props.wrap = 'no'
-    props.ref = ref
-    return createElement(Row, props)
-  },
-)
+InputGroup.defaultProps = {
+  flex: true,
+  bg: 'white',
+  m: 0,
+  p: 2,
+  bc: 'translucentLight',
+  bw: 1,
+  br: 5,
+  color: 'darkGrey'
+}
 
-export const GroupInput = React.forwardRef(
-  (props, ref) => <Input
-    type='text'
-    grow
-    bw='0'
-    size='1'
-    bg='transparent'
-    ref={ref}
-    {...props}
-  />,
-)
+export const GroupInput = React.forwardRef((props, ref) => <Input
+  type='text'
+  grow
+  bw='0'
+  size='1'
+  bg='transparent'
+  ref={ref}
+  {...props}
+/>)
 
-export const GroupLabel = React.forwardRef(
-  (props, ref) => <Box
-    as='label'
-    flex
-    justify='center'
-    align='center'
-    minH='100%'
-    ref={ref}
-    data-autosize
-    {...props}
-  />,
-)
+export const GroupLabel = React.forwardRef((props, ref) => <Box
+  as='label'
+  flex
+  justify='center'
+  align='center'
+  minH='100%'
+  ref={ref}
+  data-autosize
+  {...props}
+/>)
 
 if (__DEV__) {
   InputGroup.displayName = 'InputGroup'
   GroupInput.displayName = 'GroupInput'
   GroupLabel.displayName = 'GroupLabel'
 }
-
-export {useInputGroup}
-export default InputGroup

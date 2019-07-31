@@ -1,5 +1,5 @@
 import React from 'react'
-import Scale from './Scale'
+import {Scale} from './Scale'
 import {createTransition} from './Transition'
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Blur from './Blur'
+import {Blur} from './Blur'
 import {createTransition} from './Transition'
 
 

@@ -14,7 +14,7 @@
           {
             "env": {
               "useBuiltIns": false,
-              "targets": {"browsers": ">5% in US"}
+              "targets": {"node": "8"}
             }
           }
         ]

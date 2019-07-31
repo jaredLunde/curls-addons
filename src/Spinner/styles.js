@@ -1,5 +1,5 @@
-import {toSize, memoThemeValue} from 'curls'
-import {css} from '@emotion/core'
+import {css, unit, memoThemeValue} from 'curls'
+import * as dT from './defaultTheme'
 
 
 export const hide = css`
@@ -8,12 +8,14 @@ export const hide = css`
 `
 
 export const size = memoThemeValue((val, theme) => {
-  const wh = parseInt(theme.scale[val] || val)
+  const
+    scale = theme?.spinner?.scale || dT.scale,
+    wh = parseInt(scale[val] || val)
 
   return css`
-    width: ${toSize(wh, theme.sizeUnit)};
-    height: ${toSize(wh, theme.sizeUnit)};
-    border-width: ${toSize(Math.ceil(wh / 8), theme.sizeUnit)};
+    width: ${unit(wh, theme.sizeUnit)};
+    height: ${unit(wh, theme.sizeUnit)};
+    border-width: ${unit(Math.ceil(wh / 8), theme.sizeUnit)};
   `
 })
 

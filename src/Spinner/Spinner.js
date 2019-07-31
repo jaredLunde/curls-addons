@@ -2,8 +2,6 @@ import React from 'react'
 import {css, keyframes, useBasicBox, useStyles, createElement} from 'curls'
 import delayed from '@jaredlunde/react-delayed'
 import * as styles from './styles'
-import propTypes from './propTypes'
-import defaultTheme from './defaultTheme'
 
 
 const spin = keyframes`
@@ -27,25 +25,29 @@ const
     will-change: transform;
     contain: strict;
   `,
-  options = {name: 'spinner', styles, defaultStyles, defaultTheme},
+  options = {name: 'spinner', styles}
+
+export const
   useSpinner = props => useStyles(props, options),
-  Spinner = React.memo(
-    React.forwardRef((props, ref) => {
-      props = useBasicBox(useSpinner(props))
-      props.ref = ref
-      delete props.cancel
-      return createElement('div', props)
-    })
-  ),
+  Spinner = React.forwardRef((props, ref) => {
+    props = Object.assign({css: [defaultStyles]}, props)
+    props = useBasicBox(useSpinner(props))
+    props.ref = ref
+    delete props.cancel
+    return createElement('div', props)
+  }),
   DelayedSpinner = delayed(Spinner)
 
+Spinner.defaultProps = {
+  color: 'black',
+  size: 'sm'
+}
+DelayedSpinner.defaultProps = Spinner.defaultProps
 
 if (__DEV__) {
+  const propTypes = require('./propTypes').default
   DelayedSpinner.displayName = 'DelayedSpinner'
   Spinner.displayName = 'Spinner'
   Spinner.propTypes = propTypes
 }
-
-export {DelayedSpinner, useSpinner}
-export default Spinner
 

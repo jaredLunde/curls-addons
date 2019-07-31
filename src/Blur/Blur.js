@@ -1,23 +1,25 @@
-import React from 'react'
-import propTypes from './propTypes'
+import {createRenderProp, useTransitionableToggle} from 'curls'
 import * as styles from './styles'
-import {useTransitionableToggle} from 'curls'
 
 
 const
-  options = {name: 'blur', styles, transitionProperties: 'filter, -webkit-filter'},
+  options = {name: 'blur', styles, transitionProperties: 'filter, -webkit-filter'}
+export const
   useBlur = props => {
     props = Object.assign({}, props)
     props.from = props.from === void 0 ? 4.0 : props.from
     props.to = props.to === void 0 ? 1.0 : props.to
     return useTransitionableToggle(options, props)
   },
-  Blur = props => props.children(useBlur(props))
+  Blur = createRenderProp(useBlur)
+
+Blur.defaultProps = {
+  duration: 'normal',
+  easing: 'heavyMove'
+}
 
 if (__DEV__) {
+  const propTypes = require('./propTypes').default
   Blur.displayName = 'Blur'
   Blur.propTypes = propTypes
 }
-
-export {useBlur}
-export default Blur

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import useWindowScroll from '@react-hook/window-scroll'
 import {requestTimeout, clearRequestTimeout} from '@essentials/request-timeout'
-import {Drawer, DrawerBox, Row, Type} from 'curls'
+import {Drawer, DrawerBox, Box, Text} from 'curls'
 import Icon from './Icon'
 
 
@@ -15,7 +15,8 @@ export function AlertBox ({
   ...props
 }) {
   return  (
-    <Row
+    <Box
+      flex
       as='li'
       wrap='no'
       align='center'
@@ -33,10 +34,10 @@ export function AlertBox ({
         <Icon name='close' size='xs' color={bc} m='r2'/>
       )}
 
-      <Type center fluid color={color}>
+      <Text center fluid color={color}>
         {message}
-      </Type>
-    </Row>
+      </Text>
+    </Box>
   )
 }
 
@@ -73,7 +74,7 @@ const Alerts_ = ({duration = 6000, show, hide, alerts, AlertBox, portal}) => {
 }
 
 
-export default function Alerts ({alerts, children, portal, duration, ...props}) {
+export function Alerts ({alerts, children, portal, duration, ...props}) {
   if (!alerts) return null
   return alerts.length > 0 && (
     <Drawer fromTop duration='fast' {...props}>

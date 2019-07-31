@@ -1,1 +1,1 @@
-export default, {DelayedSpinner, useSpinner} from './Spinner'
+export {Spinner, DelayedSpinner, useSpinner} from './Spinner'

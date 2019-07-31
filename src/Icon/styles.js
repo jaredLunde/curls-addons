@@ -1,23 +1,25 @@
-import {css} from '@emotion/core'
-import {toSize, memoThemeValue} from 'curls'
+import {css, unit, memoThemeValue} from 'curls'
+import * as dT from './defaultTheme'
 
 
-function sizeCSS (value, height, theme) {
+const sizeCSS  = (value, height, theme) => {
   const width =
     value
-      ? {width: toSize(value, theme.sizeUnit), minWidth: toSize(value, theme.sizeUnit)}
+      ? {width: unit(value, theme.sizeUnit), minWidth: unit(value, theme.sizeUnit)}
       : {width: 'auto', contain: 'content'}
 
   return {
+    contain: 'strict',
     ...width,
-    height: toSize(height || value, theme.sizeUnit)
+    height: unit(height || value, theme.sizeUnit)
   }
 }
 
 export const size = memoThemeValue((value, theme) => {
-  if (theme.scale[value] !== void 0) {
-    value = theme.scale[value]
+  const scale = theme?.icon?.scale || dT.scale
 
+  if (scale[value] !== void 0) {
+    value = scale[value]
     return sizeCSS(value, void 0, theme)
   }
 
@@ -31,5 +33,3 @@ export const size = memoThemeValue((value, theme) => {
     return sizeCSS(width, height, theme)
   }
 })
-
-export const containStrict = css`contain: strict;`

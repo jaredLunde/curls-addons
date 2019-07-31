@@ -275,7 +275,7 @@ export function createTransition ({
 
 
 
-export default class Transition extends React.Component {
+export class Transition extends React.Component {
   constructor (props) {
     super(props)
     this.timeouts = new Set()
