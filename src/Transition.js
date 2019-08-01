@@ -22,7 +22,7 @@ import memoize from 'trie-memoize'
      }
    },
    useStyle: true,
-   speed: 'verySlow'
+   duration: 'verySlow'
  })
  */
 const getProperties = memoize(
@@ -220,7 +220,7 @@ export function createTransition ({
   defaultFrom,
   defaultTo,
   defaultEasing = 'swiftMove',
-  defaultSpeed = 'med',
+  defaultDuration = 'normal',
   defaultDelay = 0
 }) {
   function Transitioner_ ({
@@ -229,7 +229,7 @@ export function createTransition ({
     onMount = true,
     onUpdate = false,
     easing = defaultEasing,
-    speed = defaultSpeed,
+    duration = defaultDuration,
     delay = defaultDelay,
     addTransition,
     removeTransition,
@@ -250,7 +250,7 @@ export function createTransition ({
       from,
       to,
       easing,
-      speed,
+      duration,
       delay,
       ...props,
       children: function ({css, show}) {
