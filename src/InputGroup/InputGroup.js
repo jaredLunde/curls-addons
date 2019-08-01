@@ -1,6 +1,7 @@
 // @jsx jsx
 import React from 'react'
-import {css, jsx, useBox, Box, Input, useStyles, createElement} from 'curls'
+import {css, jsx, useBox, Box, Input, useStyles, pushCss, createElement} from 'curls'
+
 
 const
   defaultStyles = css`
@@ -10,28 +11,14 @@ const
   `,
   options = {name: 'inputGroup'}
 export const
-  useInputGroup = props => useStyles(props, options),
-  InputGroup = React.forwardRef(
-    (props, ref) => {
-      props = Object.assign({css: [defaultStyles]}, props)
-      props.align = 'stretch'
-      props.wrap = 'no'
-      props = useBox(useInputGroup(props))
-      props.ref = ref
-      return createElement('div', props)
-    },
-  )
-
-InputGroup.defaultProps = {
-  flex: true,
-  bg: 'white',
-  m: 0,
-  p: 2,
-  bc: 'translucentLight',
-  bw: 1,
-  br: 5,
-  color: 'darkGrey'
-}
+  useInputGroup = props => useStyles(options, pushCss(props, defaultStyles)),
+  InputGroup = React.forwardRef((props, ref) => {
+    props = useBox(useInputGroup(props))
+    props.align = 'stretch'
+    props.wrap = 'no'
+    props.ref = ref
+    return createElement('div', props)
+  })
 
 export const GroupInput = React.forwardRef((props, ref) => <Input
   type='text'

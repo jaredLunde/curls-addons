@@ -1,5 +1,5 @@
 import React from 'react'
-import {css, keyframes, useBasicBox, useStyles, createElement} from 'curls'
+import {css, keyframes, useBasicBox, useStyles, pushCss, createElement} from 'curls'
 import delayed from '@jaredlunde/react-delayed'
 import * as styles from './styles'
 
@@ -28,21 +28,14 @@ const
   options = {name: 'spinner', styles}
 
 export const
-  useSpinner = props => useStyles(props, options),
+  useSpinner = props => useStyles(options, pushCss(props, defaultStyles)),
   Spinner = React.forwardRef((props, ref) => {
-    props = Object.assign({css: [defaultStyles]}, props)
     props = useBasicBox(useSpinner(props))
     props.ref = ref
     delete props.cancel
     return createElement('div', props)
   }),
   DelayedSpinner = delayed(Spinner)
-
-Spinner.defaultProps = {
-  color: 'black',
-  size: 'sm'
-}
-DelayedSpinner.defaultProps = Spinner.defaultProps
 
 if (__DEV__) {
   const propTypes = require('./propTypes').default

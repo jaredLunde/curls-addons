@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import useWindowScroll from '@react-hook/window-scroll'
 import {requestTimeout, clearRequestTimeout} from '@essentials/request-timeout'
 import {Drawer, DrawerBox, Box, Text} from 'curls'
-import Icon from './Icon'
+import {Icon} from './Icon'
 
 
 export function AlertBox ({

@@ -1,5 +1,5 @@
 import React from 'react'
-import {css, useBasicBox, useStyles, useTheme} from 'curls'
+import {css, useBasicBox, useStyles, useTheme, pushCss} from 'curls'
 import {pascal} from 'change-case'
 import * as styles from './styles'
 
@@ -8,14 +8,14 @@ const
   defaultStyles = css`
     width: 1em;
     height: 1em;
+    fill: currentColor;
   `,
   options = {name: 'icon', styles}
 
 export const
-  useIcon = props => useStyles(props, options),
+  useIcon = props => useStyles(options, pushCss(props, defaultStyles)),
   Icon = React.memo(React.forwardRef((props, ref) => {
     const theme = useTheme()
-    props = Object.assign({css: [defaultStyles]}, props)
     props = useBasicBox(useIcon(props))
     props.name = pascal(props.name)
 
@@ -29,10 +29,6 @@ export const
     props['aria-label'] = props.title || props.name
     return React.createElement(SVG, props)
   }))
-
-Icon.defaultProps = {
-  color: 'currentColor'
-}
 
 if (__DEV__) {
   const propTypes = require('./propTypes').default
