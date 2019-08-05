@@ -15,18 +15,20 @@ const
 export const
   useIcon = props => useStyles(options, pushCss(props, defaultStyles)),
   Icon = React.memo(React.forwardRef((props, ref) => {
-    const theme = useTheme()
+    const
+      theme = useTheme(),
+      name = pascal(props.name)
     props = useBasicBox(useIcon(props))
-    props.name = pascal(props.name)
 
     let
-      SVG = (theme?.icon?.icons || {})[props.name],
+      SVG = (theme?.icon?.icons || {})[name],
       color  = theme.colors[props.color] || props.color
 
+    delete props.name
+    delete props.color
     props.ref = ref
     props.pathStyle = {fill: color}
-    props.role = 'img'
-    props['aria-label'] = props.title || props.name
+    props.role = props.hasOwnProperty('role') ? props.role : 'img'
     return React.createElement(SVG, props)
   }))
 
